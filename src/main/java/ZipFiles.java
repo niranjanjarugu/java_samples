@@ -52,6 +52,6 @@ public class ZipFiles {
 }
 
 
-// File currDir = new File(".");
-  //      String path = currDir.getAbsolutePath();
-    //    String fileLocation = path.substring(0, path.length() - 1) + "temp.xlsx";
+LocalDateTime currentDateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMddyyyyHHmm");
+        String formattedDateTime = currentDateTime.format(formatter);
