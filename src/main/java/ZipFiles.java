@@ -52,6 +52,13 @@ public class ZipFiles {
 }
 
 
-LocalDateTime currentDateTime = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMddyyyyHHmm");
-        String formattedDateTime = currentDateTime.format(formatter);
+@Test
+public void getNamedParamDataTest() throws Exception {
+        List<Map<String, Object>> resultMapList = new ArrayList<>();
+        Map<String, Object> resultMap = new HashMap<>();
+        resultMap.put("mesure", 12);
+        resultMapList.add(resultMap);
+        Mockito.when(namedParameterJdbcTemplate.queryForList(Mockito.anyString(), Mockito.any(MapSqlParameterSource.class))
+        ).thenReturn(resultMapList);
+        transactionSvc.getNamedParamData();
+    }
